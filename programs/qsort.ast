@@ -1,0 +1,27 @@
+-- the quick sort
+-- (c) Lutz Hamel, University of Rhode Island
+
+load system io.
+
+function qsort
+    with [] do
+        return [].
+    with [a] do
+        return [a].
+    with [pivot|rest] do
+        let less=[].
+        let more=[].
+
+        for e in rest do
+            if e < pivot do
+                less @append e.
+            else
+                more @append e.
+            end
+        end
+
+        return qsort less + [pivot] + qsort more.
+    end
+
+-- print the sorted list
+io @println (qsort [3,2,1,0])

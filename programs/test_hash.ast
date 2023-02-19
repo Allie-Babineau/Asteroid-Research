@@ -1,0 +1,6 @@
+load system io.
+load system hash.
+
+let h = hash @hash().
+h@insert("hello","there").
+io @println (h@get("hello")).

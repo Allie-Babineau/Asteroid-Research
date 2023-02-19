@@ -1,0 +1,19 @@
+#rm -r pip-dir
+#mkdir pip-dir
+#pip install --no-cache-dir -t $PWD/pip-dir asteroid-lang
+clear
+export PYTHONPATH=$PWD/pip-dir:$PYTHONPATH
+export PATH=$PWD/pip-dir/bin:$PATH
+echo "Welcome to Asteroid"
+echo ""
+echo "to start the interpreter type:"
+echo "   asteroid"
+echo ""
+echo "to explore more go to the programs folder:"
+echo "   cd programs"
+echo " "
+echo "to see the programs type:"
+echo "   ls"
+echo " "
+echo "to run an example program:"
+echo "   asteroid <program_file>"

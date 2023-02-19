@@ -1,0 +1,23 @@
+load system io.
+
+-- define what a person look like
+structure Person with
+   data name.
+   data age.
+end
+
+-- define a list of persons using default
+-- constructors for person objects
+let people = [
+   Person("George", 32),
+   Person("Sophie", 46),
+   Person("Oliver", 21)
+].
+
+-- print names of persons that contain 'p' using structural,
+-- conditional, and regular expression pattern matching
+for Person(name if name is ".*p.*", age) in people do
+   io @println name.
+end
+
+

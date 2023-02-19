@@ -1,0 +1,33 @@
+load system io.
+load system type.
+
+structure Dog with
+   data name.
+   data tricks.
+   function __init__ with (name:%string, tricks:%list) do -- constructor
+      let this@name = name.
+      let this@tricks = tricks.
+   end
+   function hello_string with () do -- member function
+      let hello_str = "Hello, my name is " + this@name + " and my tricks are ".
+      let trick_str = this@tricks @reduce (lambda with (x,y) do x + " and " + y).
+      return hello_str + trick_str.
+   end
+end
+
+let fido = Dog("Fido",["play dead","fetch"]).
+let buddy = Dog("Buddy",["sit stay","roll over"]).
+let bella = Dog("Bella",["roll over","fetch"]).
+
+let dogs = [fido,buddy,bella].
+
+-- let dogs introduce themselves
+for d in dogs do
+   let hs = d @hello_string (). -- call member function on object
+   io @println hs.
+end
+
+-- print out all the dogs that know how to fetch
+for (Dog(name,tricks) if type @tostring tricks is ".*fetch.*") in dogs do
+   io @println (name+" knows how to fetch").
+end

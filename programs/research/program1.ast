@@ -1,0 +1,11 @@
+load system io.
+
+structure Node with
+  function __init__ with (contents%integer)
+    data contents
+    data self
+end
+
+structure LinkedList with
+  function __init__ with ()
+  
