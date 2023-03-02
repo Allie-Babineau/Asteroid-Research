@@ -1,11 +1,35 @@
 load system io.
 
 structure Node with
-  function __init__ with (contents%integer)
-    data contents
-    data self
+   data item.
+   data next.
+   function __init__ with (item, next) do
+      let this@item = item.
+      let this@next if (this@next is %Node) or (this@next is null) = next. 
+   end
 end
 
 structure LinkedList with
-  function __init__ with ()
+  data head.
+  function __init__ with (head) do
+    let this@head = head.
+  end
+
+  function reverse do
+    let prev = null.
+    let current = this@head.
+    while current not null do
+      let next = current@next.
+      let current@next = prev.
+      let prev = current.
+      let current = next.
+    end
+    this@head = prev.
+  end
+
+  function push with (new_data) do
+    let new_node = Node(new_data).
+    let new_node@next = this@head.
+    let this@head = new_node.
+  end
   

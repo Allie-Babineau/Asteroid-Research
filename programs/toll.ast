@@ -1,0 +1,159 @@
+--------------------------------------------------------------------------
+-- This is the traffic database for a highway toll station
+
+--------------------------------------------------------------------------
+-- define what kind of vehicles come through the toll station
+
+structure Car with 
+   data kind.        -- "ev", "hybrid", "gas"
+   data occupants.  -- integer between 1 and 4 inclusive
+end
+
+structure Truck with
+   data kind.        -- "small", "medium", "large"
+end
+
+structure Taxi with
+   data company.     -- "YellowCab", "Downtown", "Checkered"
+   data passengers.  -- integer between 1 and 3 inclusive
+end
+
+structure Bus with
+   data capacity.    -- integer 25 and 50
+   data riders.      -- integer 1 and max capacity
+end
+
+--------------------------------------------------------------------------
+-- a list that holds the actual vehicle objects that went through the 
+-- toll station
+
+let traffic = [
+   Car("hybrid", 2),
+   Truck("small"),
+   Taxi("Downtown", 3),
+   Bus(25, 10),
+   Car("gas", 1),
+   Truck("medium"),
+   Taxi("YellowCab", 1),
+   Bus(50, 30),
+   Car("ev", 4),
+   Car("gas", 3),
+   Car("hybrid", 1),
+   Car("ev", 2),
+   Truck("large"),
+   Truck("medium"),
+   Truck("small"),
+   Truck("large"),
+   Taxi("YellowCab", 1),
+   Taxi("Downtown", 2),
+   Taxi("Checkered", 3),
+   Taxi("YellowCab", 1),
+   Bus(25, 20),
+   Bus(50, 40),
+   Bus(25, 15),
+   Bus(50, 30),
+   Car("hybrid", 3),
+   Car("gas", 2),
+   Car("ev", 1),
+   Car("hybrid", 4),
+   Truck("medium"),
+   Truck("large"),
+   Truck("small"),
+   Truck("medium"),
+   Taxi("Downtown", 1),
+   Taxi("Checkered", 2),
+   Taxi("YellowCab", 3),
+   Taxi("Checkered", 1),
+   Bus(50, 45),
+   Bus(25, 22),
+   Bus(50, 38),
+   Bus(25, 18),
+   Car("gas", 4),
+   Car("hybrid", 2),
+   Car("ev", 3),
+   Car("gas", 1),
+   Truck("small"),
+   Truck("medium"),
+   Truck("large"),
+   Truck("small"),
+   Taxi("Downtown", 2),
+   Taxi("Checkered", 1),
+   Taxi("YellowCab", 3),
+   Taxi("YellowCab", 2),
+   Bus(50, 50),
+   Bus(25, 25),
+   Bus(50, 48),
+   Bus(25, 20),
+   Car("hybrid", 1),
+   Car("ev", 4)
+].
+
+-- the toll calculation
+let toll = 0.
+
+function tollCalc
+  with Car("hybrid", x) do
+    if (x == 1) do
+      toll + 1.25.
+    elif (x == 2) do
+      toll + 1.
+    elif (x == 3) do
+      toll + 0.75.
+    elif (x >= 4) do
+      toll + 0.5.
+  end
+
+  with Car("ev", x) do
+    if (x == 1) do
+      toll + 0.5.
+    elif (x == 2) do
+      toll + 0.4.
+    elif (x == 3) do
+      toll + 0.3.
+    elif (x >= 4) do
+      toll + 0.2.
+  end
+
+  with Car("gas", x) do
+    if (x == 1) do
+      toll + 2.5.
+    elif (x == 2) do
+      toll + 2.
+    elif (x == 3) do
+      toll + 1.5.
+    elif (x >= 4) do
+      toll + 1.
+  end
+
+  with Taxi(c, p) do
+    if (p == 0) do
+      toll + 4.5.
+    elif (p == 1) do
+      toll + 3.5.
+    elif (p == 2) do
+      toll + 3.
+    elif (p >= 3) do
+      toll + 2.5.
+  end
+
+  with Bus (c, r) do
+    if (r/c > 0.9) do
+      toll + 3.
+    elif (r/c > 0.5) do
+      toll + 4.
+    elif (r/c <= 0.5) do
+      toll + 7.
+  end
+
+  with Truck (k) do
+    if (k == "small") do
+      toll + 10.
+    elif (k == "medium") do
+      toll + 15.
+    elif (k == "large") do
+      toll + 20.
+  end
+end
+
+  
+      
