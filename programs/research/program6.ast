@@ -3,7 +3,13 @@ load system vector.
 
 function count with (S%vector, m%int, n%int)
   do
-  let table = [[]].
-  for i in m do
+  let table = [[0 for x in range(m)] for x in range(n+1)].
+  for i in range(0,m) do
     table[0][i] = 1.
     end
+  for i in range(1,n+1) do
+    for j in range(0,m) do
+      if i-S[j] >= 0 do
+        x = table[i-S[j]][j] 
+      else do
+        x = 0.
