@@ -1,0 +1,85 @@
+
+-- a dictionary associative array, the keys are the letters of the 
+-- alphabet, the values are lists of words which start with the respective key
+let dictionary = [
+   ("n", ["neck", "nest", "night", "ninja", "nose"]),
+   ("u", ["umbrella", "under", "unicorn", "up", "utensil"]),
+   ("v", ["van", "vegetable", "vine", "violin", "volcano"]),
+   ("o", ["ocean", "octopus", "orange", "ostrich", "owl"]),
+   ("m", ["map", "melon", "monkey", "moon", "mountain"]),
+   ("y", ["yacht", "yak", "yarn", "yellow", "yogurt"]),
+   ("f", ["fan", "fire", "fish", "flower", "frog"]),
+   ("k", ["kangaroo", "kettle", "keyboard", "kite", "kiwi"]),
+   ("c", ["car", "cat", "chair", "cookie", "cup"]),
+   ("r", ["rabbit", "rainbow", "ring", "rocket", "rose"]),
+   ("b", ["balloon", "banana", "bird", "book", "butterfly"]),
+   ("j", ["jacket", "jar", "jelly", "jog", "jungle"]),
+   ("h", ["hand", "hat", "heart", "horse", "house"]),
+   ("s", ["sandwich", "shoe", "snake", "star", "sun"]),
+   ("x", ["xanthan", "xenon", "xenophobia", "xray", "xylophone"]),
+   ("t", ["train", "tree", "trumpet", "tulip", "turtle"]),
+   ("a", ["accordion", "alligator", "ant", "apple", "apricot"]),
+   ("g", ["giraffe", "goat", "grape", "grass", "guitar"]),
+   ("z", ["zebra", "zigzag", "zipper", "zoo", "zucchini"]),
+   ("d", ["dog", "donkey", "door", "dragon", "duck"]),
+   ("i", ["ice", "igloo", "insect", "island", "ivy"]),
+   ("e", ["ear", "eel", "egg", "elephant", "eye"]),
+   ("l", ["leaf", "lemon", "lion", "lizard", "lollipop"]),
+   ("p", ["panda", "peach", "penguin", "pepper", "piano"]),
+   ("q", ["quack", "queen", "question", "quilt", "quiver"]),
+   ("w", ["watermelon", "whale", "wheel", "window", "woodpecker"])
+].
+
+-- function to check if string a is alphabetically before string b
+function string_leq with (a:%string,b:%string) do 
+return escape
+"
+global __retval__
+(STRING,a) = state.symbol_table.lookup_sym('a')
+(STRING,b) = state.symbol_table.lookup_sym('b')
+__retval__ = ('boolean', a <= b)
+"
+end
+
+-- function that checks if a word list is lexically sorted
+function issorted 
+   with [] do
+      true
+   with [_] do
+      true
+   with [a|b|t] if string_leq (a,b) do
+      issorted [b|t].
+   with [a|b|t] if string_leq (b,a) do
+      false
+end
+
+-- function that checks that all the words on a list
+-- start with the same letter
+function isletter
+   with ([],_) do
+      true
+   with ([a|t],letter) if a@0 == letter do 
+      isletter (t,letter)
+   with _ do 
+      false
+end
+
+-- function to check the integrity of a dictionary
+function checkdict with d do
+   -- make sure all the words start with the same letter
+   for ( (letter,wordlist) if not isletter (wordlist,letter) ) in d do
+         throw ("list for letter "+letter+" not homogeneous").
+   end
+   -- make sure the list is sorted in lexical order
+   for ( (letter,wordlist) if not issorted wordlist ) in d do
+         throw ("unsorted list for letter "+letter).
+   end
+end
+
+function findword with (dictionary,word) do
+  let letter = word@0.
+  
+end
+
+-- check our dictionary 
+checkdict dictionary.
