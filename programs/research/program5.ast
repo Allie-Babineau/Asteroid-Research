@@ -1,0 +1,30 @@
+load system io.
+load system math.
+
+function sumofoddFactors with (n%int) 
+  do
+    let res = 1.
+    let i = 3.
+    while (math@mod(n,2) == 0) do
+      n = n / 2.
+      end
+  
+    while (i < ((math@sqrt n)+1) do
+      let count = 0.
+      let curr_sum = 1.
+      let curr_term = 1.
+      while (math@mod(n,i) == 0) do
+        count = count + 1.
+        n = n / i.
+        curr_term = curr_term * i.
+        curr_sum = curr_sum + 1.
+        end
+
+      res = res * curr_sum.
+      end
+
+    if n >= 2 do
+      res = res * (1+n).
+  end
+end
+      

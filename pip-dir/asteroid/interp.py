@@ -158,3 +158,63 @@ def interp(program,
         # needed for REPL
         if not exceptions:
             sys.exit(1)
+
+-- simple binary search trees
+
+structure Node with
+   data value.   -- integer values
+   data left.    -- left child
+   data right.   -- right child
+   function __init__ 
+      with (v,l,r) do -- construct binary node
+         let this@value = v.
+         let this@left = l.
+         let this@right = r.
+      with v do -- construct leaf node
+         let this@value = v.
+         let this@left = none.
+         let this@right = none.
+   end
+end
+
+-- binary search tree
+let tree = Node(8,
+            Node(4,
+               Node(2),
+               Node(6)),
+            Node(12,
+               Node(10),
+               Node(16,
+                  Node(14),
+                  Node(18)))).
+
+def findval(program,
+           program_name = "<input>",
+           tree_dump=False,
+           do_walk=True,
+           symtab_dump=False,
+           exceptions=False,
+           redundancy=True,
+           prologue=True,
+           debugger=None,
+           functional_mode=False,
+           initialize_state = True
+            assert(findval(tree,6))
+            assert(not findval(tree,17))
+           ):
+
+
+def putval(program,
+           program_name = "<input>",
+           tree_dump=False,
+           do_walk=True,
+           symtab_dump=False,
+           exceptions=False,
+           redundancy=True,
+           prologue=True,
+           debugger=None,
+           functional_mode=False,
+           initialize_state = True
+            assert(putval(tree, 15)) = True
+            assert(not putval(tree, 6)) = False
+           ):
