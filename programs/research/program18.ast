@@ -1,0 +1,23 @@
+load system io.
+
+function stopping_station with (p:%integer, n:%integer) do
+  let num = 1.
+  let dem = 1.
+  let s = p.
+
+  while p != 1 do
+    dem = dem * p.
+    p = p - 1.
+  end
+  let t = n - s + 1.
+
+  while t != ((n-2) * (s+1)) do
+    num = num * t.
+    t = t - 1.
+  end
+
+  if (n - s + 1) >= s do
+    return (num/dem):%integer.
+  else do
+    return -1.
+end

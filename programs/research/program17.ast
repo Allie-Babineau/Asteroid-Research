@@ -1,0 +1,19 @@
+load system io.
+
+function PrintNumber with (N:%integer, Original:%integer, K:%integer, flag:%boolean) do
+  io @print (N).
+  if (N <= 0) do
+    if flag == false do
+      flag = true.
+    else do
+      flag = false.
+  if (N == Original and flag == false) do
+    return.
+  if flag == true do
+    PrintNumber(N-K, Original, K, flag).
+    return.
+  if flag == false do
+    PrintNumber(N+K, Original, K, flag).
+    return
+end
+    
