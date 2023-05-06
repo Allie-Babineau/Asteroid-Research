@@ -1,26 +1,23 @@
 load system io.
 load system math.
 
-function maxPrimeFactors with (n%integer)
-  do
-    let maxPrime = -1.
-    while math @mod(n,2) == 0 do      
-      let maxPrime = 2.
-      let n = n / 2.
-    end
-
-    let i = 3.
-    while i < (math @sqrt i)+1 do
-      while math @mod(n,i) == 0 do
-        let maxPrime = i.
-        let n = n / i.
-      end
-      let i = i + 2.
-    end
-
-    if n > 2 do
-      let maxPrime = n.
-
-    return int(maxPrime).
+function maxPrimeFactors with (n:%integer) do
+  let maxPrime = -1.
+  while math @mod(n,2) == 0 do      
+    let maxPrime = 2.
+    let n = n / 2.
   end
+
+  for i in 3 to (math @sqrt i)+1 do
+    while math @mod(n,i) == 0 do
+      let maxPrime = i.
+      let n = n / i.
+    end
+    let i = i + 2.
+  end
+
+  if n > 2 do
+    let maxPrime = n.
+
+  return int(maxPrime).
 end

@@ -1,0 +1,29 @@
+load system io.
+load system math.
+
+function triangle with input1:%integer do
+  if input1 < 1 do
+    return "Zero".
+  else do
+    let a = 1.
+    let height = 0.
+    while (input1 > 0) do
+      if ((input1-a) >= 0) do
+        input1 = input1 - a.
+        a = a + 1.
+        height = height + 1.
+      else do
+        break.
+    end
+    return height.
+end
+
+function findMaximumHeight with N:%integer do
+  let n = 1 + 8*N.
+  let maxH = (-1 + math@sqrt(n)) / 2.
+  return (maxH:%integer).
+end
+    
+
+end
+          

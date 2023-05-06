@@ -1,0 +1,16 @@
+load system io.
+load system math.
+
+function with num:%integer do
+  let sum = 0.
+  let i = 2.
+  while (i*i <= num) do
+    while (math@mod(num,i) == 0) do
+      sum = sum + 1.
+      num = num / i.
+    end
+    i = i + 1.
+  end
+  sum = sum + num.
+  return sum.
+end

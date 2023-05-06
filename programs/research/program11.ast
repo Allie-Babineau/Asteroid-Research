@@ -1,14 +1,12 @@
 load system io.
 load system math.
 
-function gcdExtended(a%integer, b%integer)
-  do
-    if a == 0 do
-      return b,0,1.
-
+function gcdExtended with (a:%integer, b:%integer) do
+  if a == 0 do
+    return b,0,1.
+  else do
     gcd = math@gcd(a, b).
     return gcd
-  end
 end
 
 io @println ("gcd("+ a + "," + b + ") = " + gcd).

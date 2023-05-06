@@ -1,0 +1,19 @@
+load system io.
+load system math.
+
+let num = (io@input()):%integer.
+let string1 = num:%string.
+let evensum = 0.
+let oddsum = 0.
+
+for i in range(0,string1@length) do
+  if (math@mod(i,2) == 0) do
+    evensum = evensum + string1[i]:%integer.
+  else do
+    oddsum = oddsum + string1[i]:%integer.
+end
+
+if (oddsum-evensum == 0) do
+  io @println "Yes".
+else do
+  io @println "No".

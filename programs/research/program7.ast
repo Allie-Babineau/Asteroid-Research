@@ -1,13 +1,10 @@
 load system io.
 
-function TowerOfHanoi(n%integer, source%string, destination%string, auxiliary%char)
-  do
-    if n == 1 do
-      io @println ("Move disk 1 from source" + source + "to destination" + destination).
-      return
-
-    TowerOfHanoi(n-1, source, auxiliary, destination).
-    io @println ("Move disk" + n + "from source" + source + "to destination" + destination)
-    TowerOfHanoi(n-1, auxiliary, destination, source).
-  end
+function TowerOfHanoi with (n:%integer, source:%string, destination:%string, auxiliary:%string) do
+  if n == 1 do
+    io @println ("Move disk 1 from source" + source + "to destination" + destination).
+    return
+  TowerOfHanoi(n-1, source, auxiliary, destination).
+  io @println ("Move disk" + n + "from source" + source + "to destination" + destination)
+  TowerOfHanoi(n-1, auxiliary, destination, source).
 end

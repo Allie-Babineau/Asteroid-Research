@@ -1,26 +1,20 @@
 load system io.
 load system math.
 
-function primeFactors with (n%integer)
-
-  do  
-    while math @mod(n,2) == 0 do
-      io @println 2.
-      let n = n / 2.
-    end
-
-    let i = 3.
-
-    for i in (math @sqrt n)+1 do
-      while math @mod(n,i) == 0 do
-        io @println i.
-        let n = n / i.
-      end
-      let i = i + 2.
-    end
-
-    if n < 2 do
-      io @println n.
+function primeFactors with (n:%integer) do  
+  while math @mod(n,2) == 0 do
+    io @println 2.
+    n = n / 2.
   end
 
+  for i in 3 to (math @sqrt n)+1 do
+    while (math @mod(n,i) == 0) do
+      io @println i.
+      let n = n / i.
+    end
+      let i = i + 2.
+  end
+
+  if n < 2 do
+    io @println n.
 end
