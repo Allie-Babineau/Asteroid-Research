@@ -1,1 +1,13 @@
 load system io.
+load system type.
+
+function binarypalindrome(num%integer)
+  do
+    let binary = tobase(num,2).
+    let reverse = binary @reverse().
+    if (binary == reverse) do
+      return true.
+    else
+      return false.
+  end
+end

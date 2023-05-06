@@ -1,7 +1,7 @@
 load system io.
 load system math.
 
-function maxPrimeFactors with (n%int)
+function maxPrimeFactors with (n%integer)
   do
     let maxPrime = -1.
     while math @mod(n,2) == 0 do      

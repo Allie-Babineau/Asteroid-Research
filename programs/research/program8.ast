@@ -1,6 +1,6 @@
 load system io.
 
-function SieveOfEratosthenes(num%int)
+function SieveOfEratosthenes(num%integer)
   do
     let prime = [true for i in range(num+1)].
     let p = 2.

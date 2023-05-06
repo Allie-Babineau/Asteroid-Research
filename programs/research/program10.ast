@@ -1,0 +1,13 @@
+load system io.
+load system math.
+
+function gcd(a%integer, b%integer)
+  do
+    if a == 0 do
+      return b.
+    let c = math@gcd(a, b).
+    return c.
+  end
+end
+
+io @println ("gcd("+ a + "," + b + ") = " + c).

@@ -1,7 +1,7 @@
 load system io.
 load system math.
 
-function primeFactors with (n%int)
+function primeFactors with (n%integer)
 
   do  
     while math @mod(n,2) == 0 do

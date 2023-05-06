@@ -1,7 +1,7 @@
 load system io.
 load system math.
 
-function sumofoddFactors with (n%int) 
+function sumofoddFactors with (n%integer) 
   do
     let res = 1.
     let i = 3.

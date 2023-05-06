@@ -1,6 +1,6 @@
 load system io.
 
-function TowerOfHanoi(n%int, source%char, destination%char, auxiliary%char)
+function TowerOfHanoi(n%integer, source%string, destination%string, auxiliary%char)
   do
     if n == 1 do
       io @println ("Move disk 1 from source" + source + "to destination" + destination).
