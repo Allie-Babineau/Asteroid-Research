@@ -1,0 +1,37 @@
+load system io.
+load system math.
+
+function calculateDivisors with (A:%integer, B:%integer) do
+  let N = A - B.
+  let noOfDivisors = 0.
+  let a = math@sqrt(N).
+
+  for i in range(1, (a+1):%integer) do
+    if math@mod(N,i) == 0 do
+      if i > B do
+        noOfDivisors = noOfDivisors + 1.
+      if ((N/i) != i and (N/i) > B) do
+        noOfDivisors = noOfDivisors + 1.
+  end
+
+  return noOfDivisors.
+end
+
+function numberOfPossibleWaysUtil with (A:%integer, B:%integer) do
+  if A == B do
+    return -1.
+  if A < B do
+    return 0.
+
+  let noOfDivisors = 0.
+  noOfDivisors = calculateDivisors(A,B).
+  return noOfDivisors.
+end
+
+function numberOfPossibleWays with (A:%integer, B:%integer) do
+  let noOfSolutions = numberOfPossibleWaysUtil(A, B).
+  if noOfSolutions == -1 do
+    io@ println ("For A = " + A + "and B = " + B + ", X can take Infinitely many values greater than" + A).
+  else do
+    io@ println ("For A = " + A + "and B = " + B + ", X can take " + noOfSolutions + " values").
+end

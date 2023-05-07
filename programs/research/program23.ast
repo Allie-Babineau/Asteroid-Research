@@ -1,0 +1,36 @@
+load system io.
+load system math.
+
+function toK with (N:%integer, K:%integer) do
+  let w = 1.
+  let s = 0.
+  while N != 0 do
+    let r = math@mod(N,K).
+    N = N / K.
+    s = r * w + s.
+    w = w * 10.
+  end
+  return s.
+end
+
+function check with N:%integer do
+  let fl = false.
+  while N != 0 do
+    let r = math@mod(N,10).
+    N = N / 10.
+    if (fl == true and r == 0) do
+      return false.
+    if r > 0 do
+      fl = false.
+    fl = true.
+  end
+  return true.
+end
+
+function hasConsecutiveZeroes with (N:%integer, K:%integer) do
+  let z = toK(N,K).
+  if check(z) == true do
+    io@ println "Yes".
+  else do
+    io@ println "No".
+end

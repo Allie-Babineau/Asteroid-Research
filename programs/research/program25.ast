@@ -1,0 +1,20 @@
+load system io.
+load system math.
+
+function isprime with n:%integer do
+  let i = 2.
+  for i in range(2, (math@sqrt(n)+1):%integer) do
+    if math@mod(n,i) == 0 do
+      return false.
+  end
+  return true.
+end
+
+function LegendreConjecture with n:%integer do
+  io@ println ("Primes in the range " + math@pow(n,2) + " and " + math@pow((n+1),2) + " are:").
+
+  for i in range (math@pow(n,2), (math@pow((n+1),2)+1)) do
+    if isprime(i) == true do
+      io@ println i.
+  end
+end
