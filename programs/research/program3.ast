@@ -18,3 +18,6 @@ function primeFactors with (n:%integer) do
   if n < 2 do
     io @println n.
 end
+
+let n = 315.
+primeFactors(n).

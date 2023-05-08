@@ -16,3 +16,8 @@ function SieveOfEratosthenes with num:%integer do
       io @println p.
   end
 end
+
+let n = 30.
+io @println "Following are the prime numbers smaller".
+io @println ("than or equal to" + n).
+SieveOfEratosthenes(n).

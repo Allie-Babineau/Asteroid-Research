@@ -1,7 +1,6 @@
 load system io.
-load system vector.
 
-function count with (S:%vector, m:%integer, n:%integer) do
+function count with (S:%list, m:%integer, n:%integer) do
   let table = [[0 for x in range(m)] for x in range(n+1)].
   for i in range(0,m) do
     table[0][i] = 1.
@@ -21,3 +20,8 @@ function count with (S:%vector, m:%integer, n:%integer) do
   end
   return table[n][m-1].
 end
+
+let arr = [1,2,3].
+let m = arr@length().
+let n = 4.
+io @println(count(arr, m, n)).

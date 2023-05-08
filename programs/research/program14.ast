@@ -13,7 +13,7 @@ for i in range(0,string1@length) do
     oddsum = oddsum + string1[i]:%integer.
 end
 
-if (oddsum-evensum == 0) do
+if (oddsum - evensum == 0) do
   io @println "Yes".
 else do
   io @println "No".

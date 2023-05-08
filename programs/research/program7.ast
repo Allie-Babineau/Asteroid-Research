@@ -8,3 +8,6 @@ function TowerOfHanoi with (n:%integer, source:%string, destination:%string, aux
   io @println ("Move disk" + n + "from source" + source + "to destination" + destination)
   TowerOfHanoi(n-1, auxiliary, destination, source).
 end
+
+let n = 4.
+TowerOfHanoi(n, "A", "B", "C").

@@ -1,35 +1,23 @@
 load system io.
 
-structure Node with
-   data item.
-   data next.
-   function __init__ with (item, next) do
-      let this@item = item.
-      let this@next if (this@next is %Node) or (this@next is null) = next. 
-   end
+function push with (llist:%list, item:%integer) do
+  llist@insert(0,item).
 end
 
-structure LinkedList with
-  data head.
-  function __init__ with (head) do
-    let this@head = head.
-  end
+let llist = [].
+push(llist, 20).
+push(llist, 4).
+push(llist, 15).
+push(llist, 85).
 
-  function reverse do
-    let prev = null.
-    let current = this@head.
-    while current not null do
-      let next = current@next.
-      let current@next = prev.
-      let prev = current.
-      let current = next.
-    end
-    this@head = prev.
-  end
+io @println "Given Linked List".
+io @println llist.
 
-  function push with (new_data) do
-    let new_node = Node(new_data).
-    let new_node@next = this@head.
-    let this@head = new_node.
-  end
+llist@reverse().
+
+io @println "Reversed Linked List".
+io @println llist.
+
+  
+    
   

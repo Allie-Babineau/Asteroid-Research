@@ -25,4 +25,6 @@ function sumofoddFactors with (n:%integer) do
   if n >= 2 do
     res = res * (1+n).
 end
-      
+
+let n = 30.
+io @println sumofoddFactors(n).

@@ -4,9 +4,14 @@ load system math.
 function gcdExtended with (a:%integer, b:%integer) do
   if a == 0 do
     return b,0,1.
-  else do
-    gcd = math@gcd(a, b).
-    return gcd
+
+  let gcd, x1, y1 = gcdExtended(math@mod(b,a),a).
+
+  let x = y1 - ((b/a) * x1).
+  let y = x1.
 end
 
+let a = 35.
+let b = 15.
+let g, x, y = gcdExtended(a, b).
 io @println ("gcd("+ a + "," + b + ") = " + gcd).

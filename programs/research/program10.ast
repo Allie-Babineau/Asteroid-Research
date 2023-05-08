@@ -8,4 +8,14 @@ function gcd with (a:%integer, b:%integer) do
   return c.
 end
 
+let a = 10.
+let b = 15.
+io @println ("gcd("+ a + "," + b + ") = " + c).
+
+a = 35.
+b = 10.
+io @println ("gcd("+ a + "," + b + ") = " + c).
+
+a = 31.
+b = 2.
 io @println ("gcd("+ a + "," + b + ") = " + c).

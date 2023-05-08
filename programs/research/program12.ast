@@ -24,6 +24,9 @@ function findMaximumHeight with N:%integer do
   return (maxH:%integer).
 end
     
+let testinput1 = 22.
+io @println triangle(testinput1).
 
-end
+let N = 12.
+io @println findMaximumHeight(N).
           
