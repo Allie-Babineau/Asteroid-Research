@@ -1,0 +1,17 @@
+load system io.
+load system list.
+load system string.
+
+function find_most_occ_char with word:%string do
+  let wordlist = string @explode(word).
+  let countlist = [].
+  let greatestindex = 0.
+  for i in range(0,wordlist@length) do
+    countlist@append(wordlist@count(wordlist[i])).
+    if countlist[i] > greatest do
+      greatestindex = i.
+  end
+  io @println ("(" + wordlist[greatestindex] + ", " + countlist[greatestindex] + ")").
+end
+
+let word = io @input().
