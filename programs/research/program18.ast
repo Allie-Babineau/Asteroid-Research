@@ -21,3 +21,9 @@ function stopping_station with (p:%integer, n:%integer) do
   else do
     return -1.
 end
+
+let num = stopping_station(4,12).
+if num != -1 do
+  io @println num.
+else do
+  io @println "Not Possible".

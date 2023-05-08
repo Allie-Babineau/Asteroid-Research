@@ -9,3 +9,9 @@ function isTriangleExists with (a:%integer, b:%integer, c:%integer) do
   else do
     return "NO".
 end
+
+let a = 50.
+let b = 60.
+let c = 70.
+
+print isTriangleExists(a, b, c).

@@ -27,3 +27,6 @@ function sumofFactors with n:%integer do
     res = res * (1+n).
   return res.
 end
+
+let n = 18.
+io @println sumofFactors(n).

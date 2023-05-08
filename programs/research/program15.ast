@@ -16,3 +16,8 @@ for i in range(0,n) do
   end
   k = k + 1.
 end
+
+let i = n-1.
+for j in range(0,n) do
+  io @print (arr[i][j] + " ").
+end

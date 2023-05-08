@@ -1,7 +1,7 @@
 load system io.
 
-function find_most_occ_char with word:%string do
-  let wordlist = word@explode().
+function find_most_occ_char with input:%string do
+  let wordlist = input@explode().
   let countlist = [].
   let greatestindex = 0.
   for i in range(0,wordlist@length) do
@@ -12,4 +12,5 @@ function find_most_occ_char with word:%string do
   io @println ("(" + wordlist[greatestindex] + ", " + countlist[greatestindex] + ")").
 end
 
-let word = io @input().
+let input = "geeksforgeeks".
+find_most_occ_char(input).

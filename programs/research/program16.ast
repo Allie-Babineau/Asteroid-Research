@@ -8,3 +8,8 @@ function answer with (X:%integer, K:%integer) do
   else do
     return ((MIN + X) - math@mod((MIN + X),X)).
 end
+
+let X = 83.
+let K = 5.
+
+io @println answer(X, K).

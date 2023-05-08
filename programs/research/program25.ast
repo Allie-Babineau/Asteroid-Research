@@ -18,3 +18,6 @@ function LegendreConjecture with n:%integer do
       io@ println i.
   end
 end
+
+let n = 50.
+LegendreConjecture(n).

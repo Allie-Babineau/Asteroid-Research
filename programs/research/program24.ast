@@ -35,3 +35,11 @@ function numberOfPossibleWays with (A:%integer, B:%integer) do
   else do
     io@ println ("For A = " + A + "and B = " + B + ", X can take " + noOfSolutions + " values").
 end
+
+let A = 26.
+let B = 2.
+numberOfPossibleWays(A, B).
+
+A = 21.
+B = 5.
+numberOfPossibleWays(A, B).

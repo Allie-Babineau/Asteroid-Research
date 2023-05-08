@@ -16,4 +16,7 @@ function PrintNumber with (N:%integer, Original:%integer, K:%integer, flag:%bool
     PrintNumber(N+K, Original, K, flag).
     return
 end
-    
+
+let N = 20.
+let K = 6.
+PrintNumber(N, N, K, true).

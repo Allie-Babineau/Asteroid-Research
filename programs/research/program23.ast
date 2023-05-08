@@ -34,3 +34,7 @@ function hasConsecutiveZeroes with (N:%integer, K:%integer) do
   else do
     io@ println "No".
 end
+
+let N = 15.
+let K = 8.
+hasConsecutiveZeroes(N,K).

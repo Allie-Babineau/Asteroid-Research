@@ -15,3 +15,10 @@ function allDigitsDivide with n:%integer do
   end
   return true.
 end
+
+let n = 128.
+
+if allDigitsDivide(n) == true do
+  io @println "Yes".
+else do
+  io @println "No".
