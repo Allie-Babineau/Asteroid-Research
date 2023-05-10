@@ -12,10 +12,11 @@ let a = 10.
 let b = 15.
 io @println ("gcd("+ a + "," + b + ") = " + c).
 
-a = 35.
-b = 10.
+let a = 35.
+let b = 10.
 io @println ("gcd("+ a + "," + b + ") = " + c).
 
-a = 31.
-b = 2.
+let a = 31.
+let b = 2.
 io @println ("gcd("+ a + "," + b + ") = " + c).
+end

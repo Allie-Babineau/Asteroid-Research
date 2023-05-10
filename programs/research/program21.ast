@@ -2,7 +2,7 @@ load system io.
 load system math.
 
 function sumofFactors with n:%integer do
-  if (math@mod(n,2) != 0) do
+  if (math@mod(n,2) is not 0) do
     return 0.
   let res = 1.
 
@@ -12,21 +12,24 @@ function sumofFactors with n:%integer do
     let curr_term = 1.
 
     while math@mod(n,i == 0) do
-      count = count + 1.
-      n = n / i.
+      let count = count + 1.
+      let n = n / i.
       if (i == 2 and count == 1) do
-        curr_sum = 0.
-      curr_term = curr_term * i.
-      curr_sum = curr_sum + curr_term.
+        let curr_sum = 0.
+      let curr_term = curr_term * i.
+      let curr_sum = curr_sum + curr_term.
     end
 
-    res = res * curr_sum.
+    let res = res * curr_sum.
   end
 
   if n >= 2 do
-    res = res * (1+n).
+    let res = res * (1+n).
   return res.
 end
 
 let n = 18.
 io @println sumofFactors(n).
+end
+end
+end

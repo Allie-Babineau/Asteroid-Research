@@ -7,10 +7,11 @@ function find_most_occ_char with input:%string do
   for i in range(0,wordlist@length) do
     countlist@append(wordlist@count(wordlist[i])).
     if countlist[i] > greatest do
-      greatestindex = i.
+      let greatestindex = i.
   end
   io @println ("(" + wordlist[greatestindex] + ", " + countlist[greatestindex] + ")").
 end
 
 let input = "geeksforgeeks".
 find_most_occ_char(input).
+end

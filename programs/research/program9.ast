@@ -12,3 +12,4 @@ end
 
 let num = 9.
 io @println binarypalindrome(num).
+end

@@ -1,7 +1,10 @@
 load system io.
 
 function SieveOfEratosthenes with num:%integer do
-  let prime = [true for i in range(num+1)].
+  let prime = [true].
+  for i in range(1,num+1) do
+    prime@append(true).
+  end
   let p = 2.
   while (p*p <= num) do
     if (prime[p] == true) do
@@ -21,3 +24,4 @@ let n = 30.
 io @println "Following are the prime numbers smaller".
 io @println ("than or equal to" + n).
 SieveOfEratosthenes(n).
+end

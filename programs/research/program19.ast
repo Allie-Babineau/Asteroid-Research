@@ -1,7 +1,7 @@
 load system io.
 
 function isTriangleExists with (a:%integer, b:%integer, c:%integer) do
-  if (a != 0 and b != 0 and c != 0 and (a+b+c)==180) do
+  if (a is not 0 and b is not 0 and c is not 0 and (a+b+c)==180) do
     if ((a+b) >= c or (b+c) >= a or (a+c) >= b) do
       return "YES".
     else do
@@ -15,3 +15,4 @@ let b = 60.
 let c = 70.
 
 print isTriangleExists(a, b, c).
+end

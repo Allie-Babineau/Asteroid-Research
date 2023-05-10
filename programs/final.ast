@@ -1,0 +1,39 @@
+load system io.
+
+structure Date with
+  data day.    -- integer between 1 and 31
+  data month.  -- integer between 1 and 12
+  data year.   -- integer between 2022 and 2030
+
+  function _init_ with (day:%integer, month:%integer, year:%integer) do
+    if ((day > 31 or day < 1) or (month > 12 or month < 1) or (year > 2030 or year < 2022)) do
+      io @println "One or more of these numbers is invalid".
+    else do
+      let this@day = day.
+      let this@month = month.
+      let this@year = year.
+  end
+
+end
+
+structure Task with
+  data id.             -- integer > 0
+  data title.          -- string
+  data creation_date.  -- Date object
+  data due_date.       -- Date object
+  data priority.       -- integer between 1 and 3, 1 top priority
+  data description.    -- string
+
+  function _init_ with (id:%integer, title:%string, creation_date:%Date, due_date:%Date, priority:%integer, description:%string) do
+    if ((id <= 0) or (priority > 3 or priority < 1)) do
+      io @println "Either the id or the priority numbers is invalid".
+    else do
+      let this@id = id.
+      let this@title = title.
+      let this@creation_date = creation_date.
+      let this@due_date = due_date.
+      let this@priority = priority.
+      let this@description = description.
+  end
+
+end

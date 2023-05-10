@@ -9,9 +9,9 @@ function triangle with input1:%integer do
     let height = 0.
     while (input1 > 0) do
       if ((input1-a) >= 0) do
-        input1 = input1 - a.
-        a = a + 1.
-        height = height + 1.
+        let input1 = input1 - a.
+        let a = a + 1.
+        let height = height + 1.
       else do
         break.
     end
@@ -29,4 +29,5 @@ io @println triangle(testinput1).
 
 let N = 12.
 io @println findMaximumHeight(N).
-          
+end
+end

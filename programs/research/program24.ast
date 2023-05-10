@@ -9,9 +9,9 @@ function calculateDivisors with (A:%integer, B:%integer) do
   for i in range(1, (a+1):%integer) do
     if math@mod(N,i) == 0 do
       if i > B do
-        noOfDivisors = noOfDivisors + 1.
-      if ((N/i) != i and (N/i) > B) do
-        noOfDivisors = noOfDivisors + 1.
+        let noOfDivisors = noOfDivisors + 1.
+      if ((N/i) is not i and (N/i) > B) do
+        let noOfDivisors = noOfDivisors + 1.
   end
 
   return noOfDivisors.
@@ -24,8 +24,8 @@ function numberOfPossibleWaysUtil with (A:%integer, B:%integer) do
     return 0.
 
   let noOfDivisors = 0.
-  noOfDivisors = calculateDivisors(A,B).
-  return noOfDivisors.
+  let noOfDivisors = calculateDivisors(A,B).
+  let return noOfDivisors.
 end
 
 function numberOfPossibleWays with (A:%integer, B:%integer) do
@@ -40,6 +40,12 @@ let A = 26.
 let B = 2.
 numberOfPossibleWays(A, B).
 
-A = 21.
-B = 5.
+let A = 21.
+let B = 5.
 numberOfPossibleWays(A, B).
+end
+end
+end
+end
+end
+end

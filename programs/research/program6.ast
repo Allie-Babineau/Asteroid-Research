@@ -1,27 +1,20 @@
 load system io.
 
 function count with (S:%list, m:%integer, n:%integer) do
-  let table = [[0 for x in range(m)] for x in range(n+1)].
-  for i in range(0,m) do
-    table[0][i] = 1.
+  let table = [0].
+  for k in range(1, n+1) do
+    table@append(0).
   end
-  for i in range(1,n+1) do
-    for j in range(0,m) do
-      if i-S[j] >= 0 do
-        x = table[i-S[j]][j].
-      else do
-        x = 0.
-      if j >= 1 do
-        y = table[i][j-1].
-      else do
-        y = 0.
-      table[x][y] = x+y.
+  for i in range(0,m) do
+    for j in range(S[i],n+1) do
+      let table[j] = table[j] + table[j-S[i]].
     end
   end
-  return table[n][m-1].
+  return table[n].
 end
 
 let arr = [1,2,3].
 let m = arr@length().
 let n = 4.
 io @println(count(arr, m, n)).
+end

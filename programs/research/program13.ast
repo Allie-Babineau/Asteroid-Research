@@ -6,12 +6,12 @@ function findMinSum with num:%integer do
   let i = 2.
   while (i*i <= num) do
     while (math@mod(num,i) == 0) do
-      sum = sum + 1.
-      num = num / i.
+      let sum = sum + 1.
+      let num = num / i.
     end
-    i = i + 1.
+    let i = i + 1.
   end
-  sum = sum + num.
+  let sum = sum + num.
   return sum.
 end
 

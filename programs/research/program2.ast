@@ -24,5 +24,6 @@ end
 
 let n = 15.
 io @println maxPrimeFactors(n).
-n = 25698751364526.
+let n = 25698751364526.
 io @println maxPrimeFactors(n).
+end

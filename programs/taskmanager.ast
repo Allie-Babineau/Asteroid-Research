@@ -1,0 +1,34 @@
+structure Date with
+   data day.    -- integer between 1 and 31
+   data month.  -- integer between 1 and 12
+   data year.   -- integer between 2022 and 2030
+end
+
+structure Task with
+   data id.             -- integer > 0
+   data title.          -- string
+   data creation_date.  -- Date object
+   data due_date.       -- Date object
+   data priority.       -- integer between 1 and 3, 1 top priority
+   data description.    -- string
+end
+
+-- higher-order programming version of the quicksort
+function qsort
+   with ([],%function) do
+      []
+   with ([a],%function) do
+      [a]
+   with ([pivot|rest],order:%function) do
+      let less = [].
+      let more = [].
+      for e in rest do
+         if order (e,pivot) do
+            less @append e.
+         else do
+            more @append e.
+         end
+      end
+      qsort (less,order) + [pivot] + qsort (more,order).
+end
+

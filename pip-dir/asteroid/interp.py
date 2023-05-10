@@ -159,7 +159,7 @@ def interp(program,
         if not exceptions:
             sys.exit(1)
 
--- simple binary search trees
+# simple binary search trees
 
 structure Node with
    data value.   -- integer values
@@ -177,7 +177,7 @@ structure Node with
    end
 end
 
--- binary search tree
+# binary search tree
 let tree = Node(8,
             Node(4,
                Node(2),

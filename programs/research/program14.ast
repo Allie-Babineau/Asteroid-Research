@@ -8,12 +8,14 @@ let oddsum = 0.
 
 for i in range(0,string1@length) do
   if (math@mod(i,2) == 0) do
-    evensum = evensum + string1[i]:%integer.
+    let evensum = evensum + string1[i]:%integer.
   else do
-    oddsum = oddsum + string1[i]:%integer.
+    let oddsum = oddsum + string1[i]:%integer.
 end
 
 if (oddsum - evensum == 0) do
   io @println "Yes".
 else do
   io @println "No".
+end
+end

@@ -4,7 +4,7 @@ load system math.
 function primeFactors with (n:%integer) do  
   while math @mod(n,2) == 0 do
     io @println 2.
-    n = n / 2.
+    let n = n / 2.
   end
 
   for i in 3 to (math @sqrt n)+1 do
@@ -21,3 +21,4 @@ end
 
 let n = 315.
 primeFactors(n).
+end

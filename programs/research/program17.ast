@@ -4,9 +4,9 @@ function PrintNumber with (N:%integer, Original:%integer, K:%integer, flag:%bool
   io @print (N).
   if (N <= 0) do
     if flag == false do
-      flag = true.
+      let flag = true.
     else do
-      flag = false.
+      let flag = false.
   if (N == Original and flag == false) do
     return.
   if flag == true do
@@ -20,3 +20,7 @@ end
 let N = 20.
 let K = 6.
 PrintNumber(N, N, K, true).
+end
+end
+end
+end

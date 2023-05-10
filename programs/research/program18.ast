@@ -5,15 +5,15 @@ function stopping_station with (p:%integer, n:%integer) do
   let dem = 1.
   let s = p.
 
-  while p != 1 do
-    dem = dem * p.
-    p = p - 1.
+  while p is not 1 do
+    let dem = dem * p.
+    let p = p - 1.
   end
   let t = n - s + 1.
 
-  while t != ((n-2) * (s+1)) do
-    num = num * t.
-    t = t - 1.
+  while t is not ((n-2) * (s+1)) do
+    let num = num * t.
+    let t = t - 1.
   end
 
   if (n - s + 1) >= s do
@@ -23,7 +23,9 @@ function stopping_station with (p:%integer, n:%integer) do
 end
 
 let num = stopping_station(4,12).
-if num != -1 do
+if num is not -1 do
   io @println num.
 else do
   io @println "Not Possible".
+end
+end

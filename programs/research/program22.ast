@@ -2,7 +2,7 @@ load system io.
 load system math.
 
 function checkDivisibility with (n:%integer, digit:%integer) do
-  assert (digit != 0 and math@mod(n,digit) == 0).
+  assert (digit is not 0 and math@mod(n,digit) == 0).
 end
 
 function allDigitsDivide with n:%integer do
@@ -11,7 +11,7 @@ function allDigitsDivide with n:%integer do
     let digit = math@mod(temp,10).
     if ((checkDivisibility(n, digit)) == false) do
       return false.
-    temp = temp / 10.
+    let temp = temp / 10.
   end
   return true.
 end
@@ -22,3 +22,5 @@ if allDigitsDivide(n) == true do
   io @println "Yes".
 else do
   io @println "No".
+end
+end

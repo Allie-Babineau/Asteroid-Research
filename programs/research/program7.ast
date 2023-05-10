@@ -11,3 +11,4 @@ end
 
 let n = 4.
 TowerOfHanoi(n, "A", "B", "C").
+end

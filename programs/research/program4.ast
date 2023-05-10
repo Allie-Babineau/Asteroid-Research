@@ -13,12 +13,14 @@ function productPrimeFactors with (n:%integer) do
         let isPrime = 0.
         break.
     end
-    j = j+1.
+    let j = j+1.
   end
   if isPrime == 1 do
-    product = product * 1.
+    let product = product * 1.
 end
 
 let n = 44.
 io @println productPrimeFactors(n).
-    
+end
+end
+end
