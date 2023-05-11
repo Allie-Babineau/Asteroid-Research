@@ -26,7 +26,7 @@ end
 
 let n = 15.
 assert maxPrimeFactors(n) == 5.
-io @println maxPrimeFactors(n).
+io @println (maxPrimeFactors(n)).
 let n = 25698751364526
 assert maxPrimeFactors(n) == 328513.
-io @println maxPrimeFactors(n).
+io @println (maxPrimeFactors(n)).
