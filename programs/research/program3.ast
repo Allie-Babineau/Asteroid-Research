@@ -8,13 +8,14 @@ function primeFactors with (n:%integer) do
     let n = n / 2.
   end
 
-  for i in 3 to type@tointeger(math@sqrt n)+1 do
+  for i in range(3,type@tointeger(math@sqrt n)+1) do
     while (math @mod(n,i) == 0) do
       io@print (i + " ").
       let n = n / i.
     end
     let i = i + 1.
   end
+  io@println(" ").
   if n > 2 do
     io@println (n).
   end
