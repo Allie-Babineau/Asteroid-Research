@@ -5,12 +5,12 @@ function answer with (X:%integer, K:%integer) do
   let MIN = math@pow(10,K-1).
   if(math@mod(MIN,X) == 0) do
     return MIN.
-  else do
-    return ((MIN + X) - math@mod((MIN + X),X)).
+  end
+  return ((MIN + X) - math@mod((MIN + X),X)).
 end
 
 let X = 83.
 let K = 5.
 
-io @println answer(X, K).
-end
+io @println (answer(X, K)).
+assert answer(X, K) == 10043.

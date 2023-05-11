@@ -1,24 +1,27 @@
 load system io.
 
 let arr = [[4,5,6,8],[1,2,3,1],[7,8,9,4],[1,8,7,5]].
-let n = arr[0]@length().
+let n = arr@0@length().
 let i = 0.
 for j in range (0,n-1) do
-  io @print (arr[i][j] + " ").
+  io @print (arr@i@j + " ").
 end
 
 let k = 1.
 for i in range(0,n) do
-  for j in range(n,0,-1) do
+  let j = n.
+  while j > 0 do
     if j == n-k do
-      io @print (arr[i][j] + " ").
+      io @print (arr@i@j + " ").
       break.
+    end
+    let j = j - 1.
   end
   let k = k + 1.
 end
 
 let i = n-1.
 for j in range(0,n) do
-  io @print (arr[i][j] + " ").
+  io @print (arr@i@j + " ").
 end
-end
+io @println ("").
