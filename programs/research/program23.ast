@@ -20,8 +20,10 @@ function check with N:%integer do
     let N = N / 10.
     if (fl == true and r == 0) do
       return false.
+    end
     if r > 0 do
       let fl = false.
+    end
     let fl = true.
   end
   return true.
@@ -31,13 +33,12 @@ function hasConsecutiveZeroes with (N:%integer, K:%integer) do
   let z = toK(N,K).
   if check(z) == true do
     io@ println "Yes".
-  else do
-    io@ println "No".
+    return.
+  end
+  io@ println "No".
+  return.
 end
 
 let N = 15.
 let K = 8.
 hasConsecutiveZeroes(N,K).
-end
-end
-end
