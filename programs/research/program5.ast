@@ -28,5 +28,5 @@ function sumofoddFactors with (n:%integer) do
 end
 
 let n = 30.
-io @println sumofoddFactors(n).
+io @println (sumofoddFactors(n)).
 assert sumofoddFactors(n) == 24.

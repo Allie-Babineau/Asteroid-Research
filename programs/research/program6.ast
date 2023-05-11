@@ -8,7 +8,7 @@ function count with (S:%list, m:%integer, n:%integer) do
   let table@0 = 1.
   for i in range(0,m) do
     for j in range(S@i,n+1) do
-      let table@j = table@j + table@j-(S@i)..
+      let table@j = table@j + table@(j-(S@i)).
     end
   end
   return table@n.
@@ -19,4 +19,4 @@ let m = arr@length().
 let n = 4.
 let x = count(arr,m,n).
 io @println x.
---assert x == 4.
+assert x == 4.

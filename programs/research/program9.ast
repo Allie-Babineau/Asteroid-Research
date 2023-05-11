@@ -3,10 +3,21 @@ load system type.
 
 function binarypalindrome with num:%integer do
   let binary = type@tobase(num,2).
-  let reverse = binary@reverse().
-  return true if binary is reverse.
-  return false if binary is not reverse.
+  --io @println (binary).
+  let binstr = type@tostring binary @explode()
+                                    @reverse()
+                                    @join("").
+  --io @println (binstr).
+  if binstr == type@tostring binary do
+    return true.
+  else do
+    return false.
+  end
 end
 
 let num = 9.
-io @println binarypalindrome(num).
+io @println (binarypalindrome(num)).
+assert binarypalindrome(num) == true.
+let num = 2.
+io @println (binarypalindrome(num)).
+assert binarypalindrome(num) == false.

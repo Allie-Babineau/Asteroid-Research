@@ -22,4 +22,3 @@ end
 
 let n = 315.
 let res = primeFactors(n).
-io @println res.
