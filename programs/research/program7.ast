@@ -4,6 +4,7 @@ function TowerOfHanoi with (n:%integer, source:%string, destination:%string, aux
   if n == 1 do
     io @println ("Move disk 1 from source" + source + "to destination" + destination).
     return
+  end
   TowerOfHanoi(n-1, source, auxiliary, destination).
   io @println ("Move disk" + n + "from source" + source + "to destination" + destination)
   TowerOfHanoi(n-1, auxiliary, destination, source).
@@ -11,4 +12,3 @@ end
 
 let n = 4.
 TowerOfHanoi(n, "A", "B", "C").
-end

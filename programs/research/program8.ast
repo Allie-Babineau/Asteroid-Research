@@ -7,21 +7,22 @@ function SieveOfEratosthenes with num:%integer do
   end
   let p = 2.
   while (p*p <= num) do
-    if (prime[p] == true) do
+    if prime@p is true do
       for i in range(p*p,num+1,p) do
-        prime[i] = false.
+        let prime@i = false.
       end
-    p = p + 1.
+    end
+    let p = p + 1.
   end
 
   for p in range(2, num+1) do
-    if prime[p] do
+    if prime@p do
       io @println p.
+    end
   end
 end
 
 let n = 30.
 io @println "Following are the prime numbers smaller".
-io @println ("than or equal to" + n).
+io @println ("than or equal to " + n).
 SieveOfEratosthenes(n).
-end

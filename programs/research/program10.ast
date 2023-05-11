@@ -1,22 +1,25 @@
 load system io.
 load system math.
 
-function gcd with (a:%integer, b:%integer) do
+function gcd10 with (a:%integer, b:%integer) do
   if a == 0 do
     return b.
+  end
   let c = math@gcd(a, b).
   return c.
 end
 
 let a = 10.
 let b = 15.
+let c = gcd10(a, b).
 io @println ("gcd("+ a + "," + b + ") = " + c).
 
 let a = 35.
 let b = 10.
+let c = gcd10(a, b).
 io @println ("gcd("+ a + "," + b + ") = " + c).
 
 let a = 31.
 let b = 2.
+let c = gcd10(a, b).
 io @println ("gcd("+ a + "," + b + ") = " + c).
-end
