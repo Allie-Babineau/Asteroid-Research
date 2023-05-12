@@ -1,23 +1,24 @@
+load system io.
 load system math.
 load system type.
 
 function productPrimeFactors with (n:%integer) do
   let product = 1.
   for i in range (2,n+1) do
-    if math@mod(n, i) == 0 do
+    if math@mod(n,i) == 0 do
       let isPrime = 1.
-    end
-    for j in range (2,type@tointeger(i/2+1)) do
-      if math@mod(i, j) == 0 do
-        let isPrime = 0.
-        break.
+      for j in range (2,type@tointeger(i/2+1)) do
+        if math@mod(i, j) == 0 do
+          let isPrime = 0.
+          break.
+        end
+      end
+      if isPrime == 1 do
+        let product = product * i.
       end
     end
   end
-  if isPrime == 1 do
-    let product = product * 1.
-  end
- return product.
+  return product.
 end
 
 let n = 44.

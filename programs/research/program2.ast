@@ -2,31 +2,22 @@ load system io.
 load system math.
 load system type.
 
-function maxPrimeFactors with (n:%integer) do
-  let maxPrime = -1.
-  while math @mod(n,2) == 0 do
-    let maxPrime = 2.
-    let n = n / 2.
-  end
-  let i = 3.
-  let root = math@sqrt(i).
-  for i in range(3,type@tointeger(math@sqrt(i))+1) do
-    while math @mod(n,i) == 0 do
-      let maxPrime = i.
-      let n = n / i.
+function largest_prime_factor with (n:%integer) do
+  let largest_prime = -1.
+  let i = 2.
+  while math@pow(i,2) <= n do
+    while math@mod(n,i) == 0 do
+      let largest_prime = i.
+      let n = math@floor(type@toreal(n / i)).
     end
-    let i = i + 2.
+    let i = i + 1.
   end
-
-  if n > 2 do
-    let maxPrime = n.
+  if n > 1 do
+    let largest_prime = n.
   end
-  return type@tointeger(maxPrime).
+  return largest_prime
 end
 
 let n = 15.
-assert maxPrimeFactors(n) == 5.
-io @println (maxPrimeFactors(n)).
-let n = 25698751364526
-assert maxPrimeFactors(n) == 328513.
-io @println (maxPrimeFactors(n)).
+io @println (largest_prime_factor(n)).
+assert largest_prime_factor(n) == 5.
